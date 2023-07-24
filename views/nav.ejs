@@ -11,5 +11,24 @@
           </li>
         </ul>
       </div>
+      <div>
+        <% if(req.session.isAuth == true) { %>
+            <!-- <a href='/logout' class="logout-btn">Logout</a> -->
+            <div class="btn-group dropstart">
+              <button type="button" class="btn btn-secondary" data-bs-toggle="dropdown" aria-expanded="false">
+                <p class="content"><%= req.session.user.name.charAt(0) %></p>
+              </button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="/add">Add user</a></li>
+                <li><a class="dropdown-item" href="/logout">Logout</a></li>
+              </ul>
+            </div>
+        <% } else { %>
+            <a href="/login" class="cta-btn">Login</a>
+        <% } %>
+        <!-- <a href="/login" class="cta-btn">Logout</a>
+        <a href="/logout">Logout</a> -->
+      </div>
     </div>
   </nav>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>

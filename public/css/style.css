@@ -7,18 +7,82 @@
     text-decoration: none;
 }
 .cta-btn-1{
-    padding: 4px 12px;
+    padding: 2px 8px;
     border: none;
     text-decoration: none;
-    color: white;
-    background-color: green;
+    color: green;
+    background-color: white !important;
     border-radius: 6px;
 }
 .cta-btn-2{
-    padding: 4px 12px;
+    padding: 2px 8px;
     border: none;
     text-decoration: none;
-    color: white;
-    background-color: red;
+    color: red;
+    background-color: white !important;
     border-radius: 6px;
+}
+.row{
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+.logout-btn{
+    border: none;
+    padding: 12px 18px;
+    border-radius: 12px;
+    background-color: black;
+    color: white;
+    text-decoration: none;
+}
+.d-flex{
+    align-items: center;
+    gap: 12px;
+}
+.add-btn{
+    border: none;
+    padding: 12px 18px;
+    border-radius: 12px;
+    background-color: black;
+    color: white;
+    text-decoration: none;
+}
+.btn{
+    border-radius: 50% !important;
+    background-color: black !important;
+    color: white !important;
+    border: none !important;
+    width: 50px !important;
+    height: 50px !important;
+}
+.content{
+    font-size: 20px;
+    margin: auto;
+}
+
+.wrong-2{
+    margin: 12px auto;
+    color: rgb(255, 109, 109);
+    opacity: 0;
+    animation: stayVisible 5s linear forwards;
+}
+@keyframes stayVisible{
+    0%{
+        opacity: 1;
+    }
+    98%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+.wrong-1{
+    margin: 12px auto;
+    color: black;
+}
+.check{
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }

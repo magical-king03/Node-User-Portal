@@ -12,7 +12,13 @@
   <%- include('nav') %>
     <div class="conatiner">
         <div class="row justify-content-center">
-            <div class="col-md-4">
+            <div class="col-md-5">
+              <% if(users.length == 0) { %>
+                <div class="mt-5">
+                  <h2 class="mb-5">Start adding your users, <%= req.session.user.name %></h2>
+                  <a href="/add" class="add-btn">Add user</a>
+                </div>
+              <% } else { %>
                 <h1 class="fw-bold fs-3 mt-5 mb-3">All registered user</h1>
                 <table class="table">
                     <thead>
@@ -29,7 +35,7 @@
                         <th scope="row"><%= i+1 %></th>
                         <td><%= users[i].name %></td>
                         <td><%= users[i].email %></td>
-                        <td class="d-flex">
+                        <td class="d-flex justify-content-center">
                           <form action="/edit" method="post">
                             <input type="hidden" name="email" value="<%= users[i].email %>">
                             <button class="cta-btn-1 me-3">Edit</button>
@@ -43,6 +49,7 @@
                       <% } %>
                     </tbody>
                   </table>
+                  <% } %>
             </div>
         </div>
     </div>
