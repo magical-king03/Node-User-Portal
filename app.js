@@ -123,6 +123,8 @@ app.post('/auth', async (req, res) => {
         res.render('login', {req: req, error: 'Invalid Email id'})
     }
     else{
+        console.log(password)
+        console.log(data.password)
         let isPassValid = await bcrypt.compare(password, data.password)
         if (isPassValid) {
             req.session.isAuth = true
