@@ -4,6 +4,6 @@
         { "src": "views/*.ejs", "use": "@vercel/node" }
     ],
     "routes": [
-        { "src": "/(.*)", "dest": "/views/$1" }
+        { "src": "/(.*)", "dest": "/views" }
     ]
 }
