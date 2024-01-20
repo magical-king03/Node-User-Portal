@@ -16,7 +16,7 @@ try{
 
 const app = express()
 
-const store = new mongoDBSession.create({
+const store = new mongoDBSession({
     uri: 'mongodb+srv://visweish:visweish03@cluster0.30sjeoa.mongodb.net/?retryWrites=true&w=majority',
     collection: 'sessions'
 })

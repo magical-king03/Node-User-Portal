@@ -11,6 +11,9 @@
     "mongoose": "^7.2.2",
     "nodemon": "^2.0.22"
   },
+  "engines": {
+    "node": "14.x"
+  },  
   "name": "node-with-mongodb",
   "version": "1.0.0",
   "type": "module",
