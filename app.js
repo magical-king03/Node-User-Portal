@@ -7,12 +7,16 @@ import bodyParser from "body-parser";
 import cors from "cors";
 import MongoDBSession from 'connect-mongodb-session'
 const mongoDBSession = MongoDBSession(session)
-mongoose.connect('mongodb+srv://visweish:visweish03@cluster0.30sjeoa.mongodb.net/?retryWrites=true&w=majority').then(
-    console.log("MongoDB connected!!!")
-)
+try{
+    await mongoose.connect('mongodb+srv://visweish:visweish03@cluster0.30sjeoa.mongodb.net/?retryWrites=true&w=majority');
+    console.log('MongoDB connected!!!')
+}catch(e){
+    console.log('MongoDB connection error: ', e)
+}
+
 const app = express()
 
-const store = new mongoDBSession({
+const store = new mongoDBSession.create({
     uri: 'mongodb+srv://visweish:visweish03@cluster0.30sjeoa.mongodb.net/?retryWrites=true&w=majority',
     collection: 'sessions'
 })
@@ -25,7 +29,7 @@ app.use(session({
 }))
 
 const isAuth = (req, res, next)=>{
-    if(req.session.isAuth == true){
+    if(req.session.user && req.session.isAuth == true){
         next()
     } else{
         res.redirect('/login')
