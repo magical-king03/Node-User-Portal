@@ -4,7 +4,6 @@ import session from 'express-session'
 import bcrypt from 'bcrypt'
 import mongoose from "mongoose";
 import bodyParser from "body-parser";
-import cors from "cors";
 import MongoDBSession from 'connect-mongodb-session'
 const mongoDBSession = MongoDBSession(session)
 try{
@@ -48,7 +47,6 @@ const user = mongoose.model('users', userSchema)
 let isValid = true
 
 app.use(express.static('public'))
-app.use(cors())
 app.use(express.json())
 
 app.get('/', (req, res) => {
@@ -91,13 +89,13 @@ app.post('/update', async (req, res) => {
                 email: email,
             }
         })
-    res.redirect('/users')
+    res.redirect('http://localhost:3000/all-users')
 })
 
 app.post('/del', async (req, res) => {
     let { email } = req.body;
     let userData = await user.deleteOne({ email: email })
-    res.redirect('/users')
+    res.redirect('http://localhost:3000/all-users')
 })
 
 app.get('/register', (req, res) => {
